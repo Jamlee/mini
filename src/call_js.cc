@@ -45,7 +45,7 @@ namespace mini
       printf("%s\n", *utf8);
 
       // 编译字符串
-      v8::Local<v8::String> jsSource = v8::String::NewFromUtf8(isolate, "'Hello' + ', World!'", v8::NewStringType::kNormal).ToLocalChecked();
+      v8::Local<v8::String> jsSource = v8::String::NewFromUtf8(isolate, "(function(){return 'this is function'})();", v8::NewStringType::kNormal).ToLocalChecked();
       v8::Local<v8::String> name = v8::String::NewFromUtf8(isolate, "hello.js", v8::NewStringType::kNormal).ToLocalChecked();
       bool execute = ExecuteString(isolate, jsSource, name, true, true);
       if (!execute)
